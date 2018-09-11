@@ -9,7 +9,7 @@ class Album(models.Model):
     alogo = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.album_title + ' - ' + self.artist
+        return self.atitle + ' - ' + self.artist
 
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
@@ -17,4 +17,4 @@ class Song(models.Model):
     type = models.CharField(max_length=5)
 
     def __str__(self):
-        return self.song_title
+        return self.stitle

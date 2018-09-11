@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<img src="{{ album.alogo }}" >
+<h2> {{ album.artist }} - {{ album.atitle }}</h2>
+<h3> Жанр: {{ album.genre }} </h3>
+{% for song in album.song_set.all %}
+    <li>{{song}}</li>
+{% endfor %}
+</body>
+</html>

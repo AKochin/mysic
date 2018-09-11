@@ -1,0 +1,22 @@
+>python manage.py sqlmigrate music 0001
+Check SQL code
+
+
+>python manage.py makemigrations music
+Creating a delta patch to your DB eith changes in models.
+
+>python manage.py startapp music
+Create new app for existing server
+
+>python manage.py shell
+Start DB shell. Or maybe any shell?...
+
+>python manage.py createsuperuser
+
+Regular expressions in url path:
+
+(?P<name>pattern) where 'name' is the name of the group and 'pattern' is the pattern to match
+ex. url(r'^(?P<albumsPk>\d+)/$', views.moreDetails, name='details'),
+
+'albumsPk' is used as a name of argument for moreDetails()
+

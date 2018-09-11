@@ -1,12 +1,15 @@
+>django-admin startproject webby
+Create new project
+
+>django-admin startapp music
+Create new app for existing server
+
 >python manage.py sqlmigrate music 0001
 Check SQL code
 
 
 >python manage.py makemigrations music
 Creating a delta patch to your DB eith changes in models.
-
->python manage.py startapp music
-Create new app for existing server
 
 >python manage.py shell
 Start DB shell. Or maybe any shell?...

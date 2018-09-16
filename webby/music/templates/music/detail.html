@@ -6,13 +6,33 @@
 </head>
 <body>
 <img src="{{ album.alogo }}" >
+
+{% if err_msg %}
+    <p><strong>ERROR: {{ err_msg }}</strong></p><br><br>
+{% endif %}
+
 <h2> {{ album.artist }} - {{ album.atitle }}</h2>
 <h3> Жанр: {{ album.genre }} </h3>
+
 <ul>
     {% for song in album.song_set.all %}
         <li>{{song}}</li>
     {% endfor %}
 </ul>
+
+<form action="{% url 'music:favor' album.id %}" method="post">
+    {% csrf_token %}
+    {% for song in album.song_set.all %}
+        <input type="checkbox" id="song{{ forloop.counter }}" name="sname" value="{{ song.id }}"/>
+        <label for="song{{ forloop.counter }}">
+            {{ song.stitle }}
+            {% if song.is_fav %}
+                <img src="https://png.icons8.com/metro/20/add-to-favorites.png">
+            {% endif %}
+        </label><br>
+    {% endfor %}
+    <input type="submit" value="Make Favorite">
+</form>
 
 </body>
 </html>

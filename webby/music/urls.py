@@ -11,4 +11,7 @@ urlpatterns = [
 
     # /music/<album_PK>/
     url(r'^(?P<alPk>\d+)/$', views.detail, name='detail'),
+
+    # /music/<album_PK>/favorite
+    url(r'^(?P<alPk>\d+)/favorite/$', views.favor, name='favor'),
 ]

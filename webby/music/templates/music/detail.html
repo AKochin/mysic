@@ -14,12 +14,6 @@
 <h2> {{ album.artist }} - {{ album.atitle }}</h2>
 <h3> Жанр: {{ album.genre }} </h3>
 
-<ul>
-    {% for song in album.song_set.all %}
-        <li>{{song}}</li>
-    {% endfor %}
-</ul>
-
 <form action="{% url 'music:favor' album.id %}" method="post">
     {% csrf_token %}
     {% for song in album.song_set.all %}

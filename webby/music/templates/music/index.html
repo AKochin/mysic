@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<!-- Load the path to your static files -->
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'music/styles.css' %}" />
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'music:index' %}">mYsic</a>
+        </div>
+    </div>
+</nav>
+
 {% if albums %}
     <ul>
         {% for album in albums %}

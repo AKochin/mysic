@@ -1,13 +1,11 @@
 {% extends 'music/base.html' %}
 
 {% block buddy %}
-    {% if albums %}
-        <ul>
-            {% for album in albums %}
+
+    <ul>
+        {% for album in albums %}
             <li><a href="{% url 'music:detail' album.id %}">{{ album.atitle }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h3>You don't have any albums</h3>
-    {% endif %}
+        {% endfor %}
+    </ul>
+
 {% endblock %}

@@ -7,11 +7,8 @@ app_name = 'music'
 
 urlpatterns = [
     # /music/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 
     # /music/<album_PK>/
-    url(r'^(?P<alPk>\d+)/$', views.detail, name='detail'),
-
-    # /music/<album_PK>/favorite
-    url(r'^(?P<alPk>\d+)/favorite/$', views.favor, name='favor'),
+    url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
 ]

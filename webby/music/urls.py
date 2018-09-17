@@ -11,4 +11,7 @@ urlpatterns = [
 
     # /music/<album_PK>/
     url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
+
+    # /music/album/add
+    url(r'^album/add/$', views.AlbumCreate.as_view(), name='album-add'),
 ]

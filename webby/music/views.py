@@ -29,6 +29,7 @@ class AlbumUpdate(UpdateView):
     model = Album
     fields = ['artist', 'atitle', 'genre', 'alogo']
 
+
 class AlbumDelete(DeleteView):
     model = Album
     success_url = reverse_lazy('music:index')
@@ -56,4 +57,13 @@ class UserFormView(View):
             user.set_password(password)
             user.save()
 
-        return
+            # return User object if creditionals are correct
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return redirect('music:index')
+
+        # TODO create not blank form to indicate that registration was unsuccessful
+        return render(request, self.template_name, {'form': form})
